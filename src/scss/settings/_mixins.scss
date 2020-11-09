@@ -1,0 +1,152 @@
+//button mixins
+
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: black,
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition-delay: 0s, 0s, $duration;
+    }
+
+    &::after {
+      transition-delay: 0s, $duration, 0s;
+    }
+  }
+}
+
+@mixin btn-movie {
+  font-size: 20px;
+  transition: all 0.7s ease-in-out;
+  font-family: $movies-font;
+  outline: none;
+  border: map-get($colors, light) 2px solid;
+  border-radius: 50px;
+  background: map-get($colors, dark);
+  color: map-get($colors, light);
+  padding: 20px 20px 20px 20px;
+  cursor: pointer;
+  margin: 5px;
+  &:hover {
+    color: map-get($colors, yellow);
+    border: 2px solid map-get($colors, yellow);
+  }
+}
+//title animation mixins
+
+@mixin title-glow {
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+// movies mixins
+
+@mixin movie-container {
+  background-color: map-get($colors, dark-blue);
+  color: map-get($colors, light-blue);
+  display: flex;
+  margin: 25px;
+  border-radius: 20px;
+  width: 22rem;
+  height: 32rem;
+  transition: all 0.7s ease-in-out;
+
+  &:hover {
+    background-color: #0a0a11;
+    -webkit-box-shadow: 1px 1px 34px 1px rgba(0, 0, 0, 0.38);
+    -moz-box-shadow: 1px 1px 34px 1px rgba(0, 0, 0, 0.38);
+    box-shadow: 1px 1px 34px 1px rgba(245, 199, 73, 0.38);
+  }
+}
+
+@mixin movie-title {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: map-get($colors, yellow);
+  font-family: $movies-font;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+@mixin movie-date {
+  text-align: center;
+  margin-top: 25px;
+  font-family: $movies-font;
+}
+
+@mixin movie-poster-cont {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+@mixin movie-poster {
+  overflow: hidden;
+  height: 200px;
+  width: 150px;
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+  align-self: center;
+  border-radius: 20px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin movie-link {
+  text-align: center;
+  text-decoration: none;
+  color: map-get($colors, light-blue);
+  font-size: 20px;
+  height: 200px;
+  width: 150px;
+}

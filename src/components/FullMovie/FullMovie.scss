@@ -1,0 +1,120 @@
+@import "../../scss//main.scss";
+
+.full-movie {
+  display: flex;
+  justify-content: center;
+  font-family: $movies-font;
+  transition: $transition;
+  margin-top: 30px;
+}
+
+.full-movie--open {
+  display: flex;
+  justify-content: center;
+  font-family: $movies-font;
+  transition: $transition;
+  margin-top: 250px;
+}
+
+.full-movie__cont {
+  margin-top: 60px;
+  border: 2px solid map-get($colors, grey);
+  background-color: map-get($colors, dark);
+  color: map-get($colors, light-blue);
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  height: 70%;
+  width: 66%;
+  box-sizing: border-box;
+  border-radius: 1%;
+  text-align: center;
+
+  @media (max-width: 1025px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+    width: 90%;
+  }
+}
+.full-movie__poster {
+  display: flex;
+  @media (max-width: 1025px) {
+    width: 100%;
+  }
+}
+
+.full-movie__img {
+  height: 100%;
+  transition: all 0.7s ease-in-out;
+  align-self: center;
+  box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.5);
+  @media (max-width: 1025px) {
+    width: 100%;
+  }
+}
+
+.full-movie__elements {
+  margin-top: $movie-top;
+  margin: 0 auto;
+}
+
+.full-movie__title {
+  margin-top: $movie-top;
+  text-align: center;
+  color: map-get($colors, yellow);
+  font-size: 35px;
+}
+
+.full-movie__content {
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.full-movie__date {
+  margin-top: $movie-top;
+}
+
+.full-movie__director {
+  margin-top: 10px;
+}
+.full-movie__production {
+  margin-top: 10px;
+}
+
+.full-movie__desc {
+  margin-top: $movie-top;
+  padding: 0 10px 0 30px;
+  font-size: 22px;
+
+  @media (max-width: 800px) {
+    font-size: 20px;
+  }
+}
+
+.full-movie__actors {
+  margin-top: $movie-top;
+}
+.full-movie__rate {
+  margin-top: $movie-top;
+}
+
+.full-movie__desc {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.full-movie__btn-cont {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
+
+  @media (max-width: 800px) {
+    margin: 40px 0 25px;
+  }
+}
+
+.full-movie__button {
+  @include btn-movie;
+}

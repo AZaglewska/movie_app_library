@@ -1,0 +1,57 @@
+@import "../../scss/main.scss";
+
+.movie {
+  @media (max-width: 1025px) {
+    width: 19rem;
+    font-size: 20px;
+  }
+
+  @media (max-width: 330px) {
+    width: 94vw;
+    margin: auto;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+
+  @include movie-container;
+  display: flex;
+  justify-content: center;
+
+  &__title {
+    @include movie-title;
+  }
+
+  &__date {
+    @include movie-date;
+  }
+  &__poster-cont {
+    @include movie-poster-cont;
+  }
+
+  &__poster {
+    @include movie-poster;
+  }
+
+  &__link {
+    @include movie-link;
+  }
+}
+
+.movie__btn-cont {
+  margin: 45px 5px 30px 5px;
+}
+
+.movie__btn-fav {
+  @media (max-width: 1025px) {
+    font-size: $button-font-size;
+    padding: $button-padding;
+  }
+  @include btn-movie;
+}
+.movie__btn-desc {
+  @media (max-width: 1025px) {
+    font-size: $button-font-size;
+    padding: $button-padding;
+  }
+  @include btn-movie;
+}

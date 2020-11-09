@@ -1,0 +1,129 @@
+@import "../../scss/main.scss";
+
+.form {
+  display: flex;
+  justify-content: center;
+  transition: $transition;
+  margin-top: 100px;
+}
+.form__open {
+  display: flex;
+  justify-content: center;
+  transition: $transition;
+  margin-top: 250px;
+}
+
+.form__input {
+  background-color: transparent;
+  border: 3px solid map-get($colors, deep-purple);
+  padding: 20px 60px;
+  border-radius: 30px;
+  text-align: center;
+  outline: none;
+  font-family: $search-font;
+  font-size: 25px;
+  box-shadow: 0 10px 5px rgba(map-get($colors, purple), 0.3);
+  transition: 0.4s;
+
+  &:focus {
+    border: none;
+    animation: pulseInput 2.5s infinite;
+    transform: scale(1.05);
+    transition: 0.4s;
+    color: rgb(138, 133, 133);
+  }
+  &::placeholder {
+    color: map-get($colors, deep-purple);
+    font-size: 30px;
+
+    @media (max-width: 700px) {
+      width: 75vw;
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    width: 75vw;
+    font-size: 4.5vw;
+  }
+}
+@keyframes pulseInput {
+  0% {
+    box-shadow: 0 10px 5px rgba(map-get($colors, deep-yellow), 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 10px 8px rgba(map-get($colors, deep-yellow), 0.3);
+  }
+
+  100% {
+    box-shadow: 0 10px 5px rgba(map-get($colors, deep-yellow), 0.3);
+  }
+}
+
+.form__btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form__button {
+  padding: 20px 70px 20px 70px;
+  border: map-get($colors, deep-purple) 2px solid;
+  color: map-get($colors, deep-purple);
+  border-radius: 30px;
+  margin-top: 40px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-family: $search-font;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 5px 5px rgba(map-get($colors, purple), 0.3);
+  transition: 1s;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  @media (max-width: 860px) {
+    font-size: 30px;
+    width: 50vw;
+  }
+
+  &:hover {
+    box-shadow: 0 0 20px rgba(map-get($colors, deep-yellow), 0.3);
+    transition: 1s;
+    animation: pulseSubmit 1.3s infinite;
+    color: rgba(map-get($colors, yellow), 0.3);
+  }
+
+  &:active {
+    background-color: #322a33;
+    transition: 0.25s;
+    transform: translate(0, 2px);
+  }
+}
+@keyframes pulseSubmit {
+  0% {
+    box-shadow: 0 0 0 0 map-get($colors, yellow);
+  }
+
+  70% {
+    box-shadow: 0 0 15px 15px rgba(59, 139, 65, 0);
+  }
+
+  100% {
+    box-shadow: 0 5px 5px rgba(rgb(0, 0, 0), 0.3);
+  }
+}
+
+.form__error {
+  margin-top: 30px;
+  color: map-get($colors, yellow);
+  text-align: center;
+  font-family: $title-font;
+  font-weight: 400;
+  font-size: 46px;
+
+  @media (max-width: 860px) {
+    font-size: 30px;
+  }
+}

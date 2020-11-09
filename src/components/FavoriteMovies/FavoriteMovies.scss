@@ -1,0 +1,71 @@
+@import "../../scss/main.scss";
+
+.fav-movie {
+  transition: $transition;
+  &__title {
+    text-align: center;
+    margin: 100px 0 30px 0;
+    color: map-get($colors, light-grey);
+    font-family: $movies-font;
+    font-weight: 600;
+    @media (max-width: 1025px) {
+      font-size: 25px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: $movies-font;
+  }
+}
+
+.fav-movie--open {
+  transition: $transition;
+  margin-top: 250px;
+}
+
+.fav-movie__list-cont {
+  @include movie-container;
+  justify-content: center;
+  @media (max-width: 1025px) {
+    width: 19rem;
+    font-size: 15px;
+  }
+
+  @media (max-width: 330px) {
+    width: 94vw;
+    margin: auto;
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+}
+
+.fav-movie__list-title {
+  @include movie-title;
+}
+
+.fav-movie__list-date {
+  @include movie-date;
+}
+
+.fav-movie__list-poster {
+  @include movie-poster-cont;
+}
+
+.fav-movie__list-img {
+  @include movie-poster;
+}
+.fav-movie__list-link {
+  @include movie-link;
+}
+.fav-movie__list-btn {
+  display: flex;
+  justify-content: center;
+  margin: 35px 5px 30px 5px;
+}
+
+.fav-movie__list-delete {
+  @include btn-movie;
+}
