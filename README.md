@@ -5,7 +5,7 @@
 A simple movie search app created in React. In this app users can search movies by title, add movies to favorite and read more details about the selected movie.
 This project uses React.js, React-Router-dom for navigation and SASS/SCSS for layout styles.
 
-![](<img src='./src/assets/gifs/Peek 2020-11-05 23-13.gif' width="400"  height="400"/>)
+![gif](<img src='https://github.com/AZaglewska/movie_app_library/blob/main/src/assets/gifs/Peek%202020-11-05%2023-13.gif' width="400"  height="400"/>)
 
 ## Live demo
 
